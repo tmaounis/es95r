@@ -1,1 +1,1 @@
-//Key with permissions of funding account
+//Key with permissions of the funding account
