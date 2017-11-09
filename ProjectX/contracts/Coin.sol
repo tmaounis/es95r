@@ -1,6 +1,6 @@
 //Bank crypto contract 
 
-pragma solidity ^0.4.0;
+pragma solidity ^0.4.11;
 
 contract Coin {
 
@@ -11,10 +11,10 @@ contract Coin {
 	event Sent(address from, address to, uint amount);
 
 	//log creation of coins
-	event Mint();
+	event Mint(uint amount);
 
-	//log creation of coins
-	event Destroy();
+	//log destroyal of coins
+	event Destroy(uint amount);
 
 	function Coin() {
 		minter = msg.sender;
@@ -23,11 +23,13 @@ contract Coin {
 	function mint(address receiver, uint amount) {
 		if (msg.sender != minter) return;
 		balances[receiver] += amount; 
+		Mint(amount);
 	}
 
 	function destroy(address receiver, uint amount) {
 		if(msg.sender != minter) return; 
 		balances[receiver] -= amount; 
+		Destroy(amount);
 	}
 
 	function send(address receiver, uint amount) {
