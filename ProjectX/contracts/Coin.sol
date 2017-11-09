@@ -10,6 +10,12 @@ contract Coin {
 	//logging of sending activity 
 	event Sent(address from, address to, uint amount);
 
+	//log creation of coins
+	event Mint();
+
+	//log creation of coins
+	event Destroy();
+
 	function Coin() {
 		minter = msg.sender;
 	}
