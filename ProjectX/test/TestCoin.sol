@@ -16,22 +16,7 @@ contract TestCoin {
 	}
 
 	function testMint(){
-		
-	}
 
-	function testInitialBalanceUsingDeployedContract() {
-
-		uint expected = 10000;
-
-		Assert.equal(coin.getBalance(tx.origin), expected, "Owner should have 10000 Coin initially");
-	}
-
-	function testInitialBalanceWithNewMetaCoin() {
-		Coin meta = new Coin();
-
-		uint expected = 10000;
-
-		Assert.equal(meta.getBalance(tx.origin), expected, "Owner should have 10000 Coin initially");
 	}
 
 }

@@ -5,6 +5,7 @@ pragma solidity ^0.4.11;
 contract Coin {
 
 	address public minter; 
+	uint256 public totalSupply;
 	mapping (address => uint256) public balances; 
 		
 	//logging of sending activity 
@@ -18,17 +19,20 @@ contract Coin {
 
 	function Coin() {
 		minter = msg.sender;
+		totalSupply = 0; //supply is zero at onset
 	}
 
 	function mint(address receiver, uint amount) {
 		if (msg.sender != minter) return;
 		balances[receiver] += amount; 
+		totalSupply += amount;
 		Mint(amount);
 	}
 
 	function destroy(address receiver, uint amount) {
 		if(msg.sender != minter) return; 
 		balances[receiver] -= amount; 
+		totalSupply -= amount;
 		Destroy(amount);
 	}
 
