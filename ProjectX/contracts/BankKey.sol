@@ -2,7 +2,7 @@
 
 pragma solidity ^0.4.11;
 
-contract SupremeKey {
+contract BankKey {
 	mapping (address => bool) public approvedFunderKeys; 
 
 
